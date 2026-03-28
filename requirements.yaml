@@ -1,0 +1,16 @@
+packages:
+  "framer-motion": "For premium scroll animations, particle effects, and layout transitions"
+  "recharts": "For the Demand Forecasting interactive chart demo"
+  "react-hook-form": "For robust contact form state handling"
+  "@hookform/resolvers": "For Zod integration with the contact form"
+  "zod": "For schema validation on the contact form"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility function to efficiently merge Tailwind CSS classes"
+images:
+  - path: "artifacts/nyxion-labs/public/images/hero-abstract.png"
+    description: "Dark navy abstract background with glowing electric blue and teal particle networks, premium enterprise technology feel, subtle glassmorphism"
+    aspect_ratio: "16:9"
+notes:
+  - "The application is a single-page landing page."
+  - "Interactive demos simulate backend logic purely on the frontend using React state."
+  - "Hash links are used for navigation between sections on the page."
