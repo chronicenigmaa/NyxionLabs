@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <rect width="600" height="200" rx="16" fill="#F9F9F9" stroke="#E8E8E8" stroke-width="0.5"/>
+  <circle cx="60"  cy="142" r="4.5" fill="#0A0A0A" opacity="0.18"/>
+  <circle cx="80"  cy="124" r="4.5" fill="#0A0A0A" opacity="0.35"/>
+  <circle cx="80"  cy="142" r="4.5" fill="#0A0A0A" opacity="0.35"/>
+  <circle cx="100" cy="106" r="4.5" fill="#0A0A0A" opacity="0.55"/>
+  <circle cx="100" cy="124" r="4.5" fill="#0A0A0A" opacity="0.55"/>
+  <circle cx="100" cy="142" r="4.5" fill="#0A0A0A" opacity="0.55"/>
+  <circle cx="120" cy="88"  r="4.5" fill="#0A0A0A" opacity="0.75"/>
+  <circle cx="120" cy="106" r="4.5" fill="#0A0A0A" opacity="0.75"/>
+  <circle cx="120" cy="124" r="4.5" fill="#0A0A0A" opacity="0.75"/>
+  <circle cx="120" cy="142" r="4.5" fill="#0A0A0A" opacity="0.75"/>
+  <circle cx="140" cy="70"  r="4.5" fill="#0A0A0A"/>
+  <circle cx="140" cy="88"  r="4.5" fill="#0A0A0A"/>
+  <circle cx="140" cy="106" r="4.5" fill="#0A0A0A"/>
+  <circle cx="140" cy="124" r="4.5" fill="#0A0A0A"/>
+  <circle cx="140" cy="142" r="4.5" fill="#0A0A0A"/>
+  <text font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#0A0A0A" x="172" y="118" letter-spacing="2">NYXION</text>
+  <text font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="200" fill="#AAAAAA" x="172" y="154" letter-spacing="9">LABS</text>
+  <line x1="172" y1="164" x2="565" y2="164" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="400" fill="#CCCCCC" x="172" y="179" letter-spacing="3">SKIP THE HYPE. SHIP THE MODEL.</text>
+</svg>
