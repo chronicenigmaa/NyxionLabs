@@ -1,27 +1,5 @@
-import { motion, useInView, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, ShieldAlert, Zap } from "lucide-react";
-
-function CountUp({ to, duration = 2, suffix = "", prefix = "", decimals = 0 }: { to: number, duration?: number, suffix?: string, prefix?: string, decimals?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (inView) {
-      const controls = animate(0, to, {
-        duration,
-        ease: "easeOut",
-        onUpdate(value) {
-          setCount(value);
-        }
-      });
-      return () => controls.stop();
-    }
-  }, [inView, to, duration]);
-
-  return <span ref={ref}>{prefix}{count.toFixed(decimals)}{suffix}</span>;
-}
 
 export function Hero() {
   return (
@@ -92,57 +70,39 @@ export function Hero() {
             <div className="glass-panel-dark rounded-3xl p-8 relative overflow-hidden group hover:border-blue/30 transition-colors duration-500">
               <div className="absolute top-0 right-0 p-4">
                 <span className="flex items-center gap-2 text-xs font-bold text-teal bg-teal/10 px-3 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" /> Live Metrics
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" /> What We Ship
                 </span>
               </div>
-              
-              <h3 className="text-white font-bold text-lg mb-8">Model Performance Fleet</h3>
-              
+
+              <h3 className="text-white font-bold text-lg mb-8">Built for Production</h3>
+
               <div className="space-y-6">
                 <div className="bg-white/5 border border-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-                  <div className="flex justify-between items-end mb-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-blue/20 text-blue flex items-center justify-center"><BarChart3 size={20} /></div>
-                      <div>
-                        <div className="text-white font-bold text-sm">Demand Forecast Ensembles</div>
-                        <div className="text-white/40 text-xs">SKU-level predictions</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-black text-white"><CountUp to={94.2} decimals={1} suffix="%" /></div>
-                      <div className="text-teal text-xs font-bold">Accuracy</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue/20 text-blue flex items-center justify-center"><BarChart3 size={20} /></div>
+                    <div>
+                      <div className="text-white font-bold text-sm">Demand Forecast Ensembles</div>
+                      <div className="text-teal text-xs font-bold mt-1">Sub-hour retraining cycles</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-white/5 border border-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-                  <div className="flex justify-between items-end mb-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center"><ShieldAlert size={20} /></div>
-                      <div>
-                        <div className="text-white font-bold text-sm">Fraud Detection Scoring</div>
-                        <div className="text-white/40 text-xs">Sub-12ms latency</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-black text-white"><CountUp to={2.3} prefix="$" suffix="M" decimals={1} /></div>
-                      <div className="text-red-400 text-xs font-bold">Protected today</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center"><ShieldAlert size={20} /></div>
+                    <div>
+                      <div className="text-white font-bold text-sm">Fraud Detection Scoring</div>
+                      <div className="text-red-400 text-xs font-bold mt-1">Sub-12ms inference latency</div>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-white/5 border border-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-                  <div className="flex justify-between items-end mb-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-teal/20 text-teal flex items-center justify-center"><Zap size={20} /></div>
-                      <div>
-                        <div className="text-white font-bold text-sm">Active Models in Prod</div>
-                        <div className="text-white/40 text-xs">Across 6 regions</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-black text-white"><CountUp to={54} /></div>
-                      <div className="text-teal text-xs font-bold">Deployed</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-teal/20 text-teal flex items-center justify-center"><Zap size={20} /></div>
+                    <div>
+                      <div className="text-white font-bold text-sm">Production-grade MLOps</div>
+                      <div className="text-teal text-xs font-bold mt-1">Monitoring, drift alerts & CI/CD from day one</div>
                     </div>
                   </div>
                 </div>
@@ -160,10 +120,10 @@ export function Hero() {
 
 export function Stats() {
   const stats = [
-    { num: 50, suffix: '+', label: 'AI Models Deployed' },
-    { num: 97.4, suffix: '%', decimals: 1, label: 'Average Model Accuracy' },
-    { num: 8, suffix: 'wk', label: 'Average Time to Production' },
-    { num: 35, suffix: '+', label: 'Enterprise Clients' },
+    { headline: '3 Clients', sub: '100% delivered on time' },
+    { headline: '8-Week', sub: 'From data to production' },
+    { headline: 'Production-grade', sub: 'MLOps from day one' },
+    { headline: 'Zero', sub: 'Failed deployments' },
   ];
 
   return (
@@ -172,11 +132,11 @@ export function Stats() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-border/50">
           {stats.map((stat, i) => (
             <div key={i} className="text-center px-4">
-              <div className="text-4xl md:text-5xl font-display font-bold text-navy mb-2">
-                <CountUp to={stat.num} suffix={stat.suffix} decimals={stat.decimals} />
+              <div className="text-3xl md:text-4xl font-display font-bold text-navy mb-2">
+                {stat.headline}
               </div>
               <div className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
-                {stat.label}
+                {stat.sub}
               </div>
             </div>
           ))}

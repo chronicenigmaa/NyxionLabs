@@ -16,11 +16,6 @@ const projects = [
     summary:
       "A gradient-boosted ensemble trained on 3 years of transactional history with SARIMA for seasonality. Deployed as a REST microservice with automated weekly retraining and drift alerts.",
     stack: ["XGBoost", "SARIMA", "FastAPI", "MLflow", "Docker"],
-    metrics: [
-      { value: "94%", label: "Stockout Reduction" },
-      { value: "+18%", label: "Revenue Uplift" },
-      { value: "8 wks", label: "To Production" },
-    ],
   },
   {
     industry: "Financial Services",
@@ -30,13 +25,8 @@ const projects = [
     label: "Fraud Detection",
     title: "Real-time Transaction Fraud Scoring at Sub-12ms Latency",
     summary:
-      "XGBoost + Isolation Forest ensemble scoring every transaction with SHAP explanations for compliance. Deployed on AWS SageMaker with auto-scaling to handle 50K+ daily transactions.",
+      "XGBoost + Isolation Forest ensemble scoring every transaction with SHAP explanations for compliance. Deployed on AWS SageMaker with auto-scaling.",
     stack: ["XGBoost", "Isolation Forest", "SHAP", "SageMaker", "Kafka"],
-    metrics: [
-      { value: "₨2.3M", label: "Protected Monthly" },
-      { value: "97.4%", label: "Recall" },
-      { value: "<0.3%", label: "False Positive Rate" },
-    ],
   },
   {
     industry: "Healthcare",
@@ -44,15 +34,10 @@ const projects = [
     accentBorder: "border-teal/20",
     accentTag: "bg-teal/10 text-teal-700",
     label: "NLP & Document AI",
-    title: "Clinical NLP Automation Across 340,000 Patient Documents",
+    title: "Clinical NLP Automation for Unstructured Patient Records",
     summary:
-      "Fine-tuned BERT for named entity recognition and ICD-10 code extraction from unstructured clinical notes. Reduced manual coding backlog by 8× while maintaining 99.1% accuracy.",
+      "Fine-tuned BERT for named entity recognition and ICD-10 code extraction from unstructured clinical notes. Eliminated the manual coding backlog.",
     stack: ["BERT", "Hugging Face", "spaCy", "FastAPI", "PostgreSQL"],
-    metrics: [
-      { value: "340K", label: "Docs Automated" },
-      { value: "8×", label: "Faster Processing" },
-      { value: "99.1%", label: "Extraction Accuracy" },
-    ],
   },
   {
     industry: "Manufacturing",
@@ -62,13 +47,8 @@ const projects = [
     label: "Predictive Maintenance",
     title: "LSTM-Powered Failure Prediction for Turbine Fleet Operator",
     summary:
-      "PyTorch LSTM on multivariate sensor streams predicts equipment failure 7–30 days in advance. Integrated with SCADA systems via MQTT; alerts dispatched to maintenance teams in real time.",
+      "PyTorch LSTM on multivariate sensor streams predicts equipment failure 7–30 days in advance. Integrated with SCADA systems via MQTT; alerts dispatched in real time.",
     stack: ["PyTorch", "LSTM", "MQTT", "Grafana", "InfluxDB"],
-    metrics: [
-      { value: "71%", label: "Unplanned Downtime Cut" },
-      { value: "14 days", label: "Avg Advance Warning" },
-      { value: "$1.2M", label: "Annual Savings" },
-    ],
   },
   {
     industry: "Telecom",
@@ -80,11 +60,6 @@ const projects = [
     summary:
       "Gradient boosting model on 18-month subscriber behaviour data. Integrated with the CRM to trigger personalized retention offers 14 days before predicted churn — fully automated.",
     stack: ["LightGBM", "SHAP", "Airflow", "Salesforce CRM", "Redshift"],
-    metrics: [
-      { value: "23%", label: "Churn Rate Reduced" },
-      { value: "+$4.1M", label: "ARR Retained" },
-      { value: "88%", label: "Model Precision" },
-    ],
   },
   {
     industry: "Retail & FMCG",
@@ -94,13 +69,8 @@ const projects = [
     label: "Computer Vision",
     title: "Vision-Based Quality Control Deployed on the Factory Floor",
     summary:
-      "YOLOv8 model trained on 60K product images to detect surface defects in real time on a production conveyor. Replaced manual QC inspection with sub-100ms camera inference.",
+      "YOLOv8 model trained on product images to detect surface defects in real time on a production conveyor. Replaced manual QC inspection with sub-100ms camera inference.",
     stack: ["YOLOv8", "OpenCV", "ONNX", "Edge GPU", "Raspberry Pi"],
-    metrics: [
-      { value: "99.3%", label: "Defect Detection" },
-      { value: "82ms", label: "Inference Latency" },
-      { value: "60%", label: "QC Cost Reduction" },
-    ],
   },
 ];
 
@@ -189,19 +159,6 @@ export function OurWork() {
                     ))}
                   </div>
 
-                  {/* Metrics */}
-                  <div className="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-border/60">
-                    {p.metrics.map((m) => (
-                      <div key={m.label} className="text-center">
-                        <div className="text-lg font-black text-navy leading-none mb-1">
-                          {m.value}
-                        </div>
-                        <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide leading-tight">
-                          {m.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             ))}
