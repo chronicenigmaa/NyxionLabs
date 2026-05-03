@@ -5,6 +5,7 @@ import { OurWork } from "@/components/home/OurWork";
 import { Industries, TechStack } from "@/components/home/IndustriesAndTech";
 import { WhyNyxion } from "@/components/home/CaseStudiesAndTrust";
 import { Contact } from "@/components/home/Contact";
+import { Products } from "@/components/home/Products";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Stats />
         <Services />
         <HowItWorks />
+        <Products />
         <Industries />
         <OurWork />
         <WhyNyxion />
