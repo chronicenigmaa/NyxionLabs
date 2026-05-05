@@ -172,7 +172,7 @@ export function Products() {
         </motion.div>
 
         {/* Packages row */}
-        <div className="mt-12 grid grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
               name: "Starter",
@@ -180,6 +180,7 @@ export function Products() {
               setup: "PKR 10,000",
               desc: "Small schools, up to 200 students",
               color: "border-blue/20 bg-blue/5",
+              enterprise: false,
             },
             {
               name: "Growth",
@@ -188,6 +189,7 @@ export function Products() {
               desc: "Medium schools, up to 500 students",
               color: "border-violet-500/20 bg-violet-500/5",
               highlight: true,
+              enterprise: false,
             },
             {
               name: "Elite",
@@ -195,6 +197,15 @@ export function Products() {
               setup: "PKR 15,000",
               desc: "Large schools and chains, unlimited",
               color: "border-teal/20 bg-teal/5",
+              enterprise: false,
+            },
+            {
+              name: "Enterprise",
+              price: "Custom",
+              setup: "Custom",
+              desc: "School networks, multi-campus chains, and large institutions",
+              color: "border-slate-600 bg-slate-900",
+              enterprise: true,
             },
           ].map((pkg) => (
             <div
@@ -206,14 +217,31 @@ export function Products() {
                   Most Popular
                 </span>
               )}
-              <p className="text-navy font-bold text-lg mb-1">{pkg.name}</p>
-              <p className="text-2xl font-bold text-navy mb-1">
-                {pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span>
+              {pkg.enterprise && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
+                  For Chains
+                </span>
+              )}
+              <p className={`font-bold text-lg mb-1 ${pkg.enterprise ? "text-white" : "text-navy"}`}>{pkg.name}</p>
+              <p className={`text-2xl font-bold mb-1 ${pkg.enterprise ? "text-white" : "text-navy"}`}>
+                {pkg.price === "Custom"
+                  ? <span>Custom</span>
+                  : <>{pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span></>
+                }
               </p>
-              <p className="text-slate-500 text-xs leading-relaxed mb-3">{pkg.desc}</p>
-              <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-[11px] font-medium">
-                {pkg.setup} one-time setup
-              </div>
+              <p className={`text-xs leading-relaxed mb-3 ${pkg.enterprise ? "text-slate-400" : "text-slate-500"}`}>{pkg.desc}</p>
+              {pkg.enterprise ? (
+                <a
+                  href="#contact"
+                  className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-medium hover:bg-white/20 transition-colors"
+                >
+                  Contact us
+                </a>
+              ) : (
+                <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-[11px] font-medium">
+                  {pkg.setup} one-time setup
+                </div>
+              )}
             </div>
           ))}
         </div>
