@@ -174,9 +174,28 @@ export function Products() {
         {/* Packages row */}
         <div className="mt-12 grid grid-cols-3 gap-4">
           {[
-            { name: "Starter", price: "PKR 5,999", desc: "Small schools, up to 200 students", color: "border-blue/20 bg-blue/5" },
-            { name: "Growth", price: "PKR 11,999", desc: "Medium schools, up to 500 students", color: "border-violet-500/20 bg-violet-500/5", highlight: true },
-            { name: "Elite", price: "PKR 24,999", desc: "Large schools and chains, unlimited", color: "border-teal/20 bg-teal/5" },
+            {
+              name: "Starter",
+              price: "PKR 5,999",
+              setup: "PKR 10,000",
+              desc: "Small schools, up to 200 students",
+              color: "border-blue/20 bg-blue/5",
+            },
+            {
+              name: "Growth",
+              price: "PKR 15,999",
+              setup: "PKR 10,000",
+              desc: "Medium schools, up to 500 students",
+              color: "border-violet-500/20 bg-violet-500/5",
+              highlight: true,
+            },
+            {
+              name: "Elite",
+              price: "PKR 39,999",
+              setup: "PKR 15,000",
+              desc: "Large schools and chains, unlimited",
+              color: "border-teal/20 bg-teal/5",
+            },
           ].map((pkg) => (
             <div
               key={pkg.name}
@@ -188,8 +207,13 @@ export function Products() {
                 </span>
               )}
               <p className="text-navy font-bold text-lg mb-1">{pkg.name}</p>
-              <p className="text-2xl font-bold text-navy mb-1">{pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span></p>
-              <p className="text-slate-500 text-xs leading-relaxed">{pkg.desc}</p>
+              <p className="text-2xl font-bold text-navy mb-1">
+                {pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span>
+              </p>
+              <p className="text-slate-500 text-xs leading-relaxed mb-3">{pkg.desc}</p>
+              <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-[11px] font-medium">
+                {pkg.setup} one-time setup
+              </div>
             </div>
           ))}
         </div>
