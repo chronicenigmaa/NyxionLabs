@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, GraduationCap, BookOpen, Brain, Shield, Smartphone } from "lucide-react";
+import { ArrowUpRight, Sparkles, GraduationCap, BookOpen, Brain, Shield, Smartphone, Building2, BarChart3, Users, FileText } from "lucide-react";
 
 const products = [
   {
@@ -48,6 +48,29 @@ const products = [
     packages: ["Students", "Teachers", "Admins"],
     stack: ["Llama 3.3 70B", "Real-time", "Android App", "Anti-Cheat"],
   },
+  {
+    id: "propflow",
+    label: "Property Management",
+    name: "Nyxion PropFlow",
+    tagline: "The builder portal for Pakistani property developers.",
+    description:
+      "A complete property management platform for Pakistani builders and developers. Manage inventory, bookings, installment plans, and client communications — with AI built in by default.",
+    accent: "from-emerald-500/15 to-emerald-500/5",
+    accentBorder: "border-emerald-500/20",
+    accentTag: "bg-emerald-500/10 text-emerald-600",
+    accentBtn: "bg-emerald-600 text-white hover:bg-emerald-700",
+    accentIcon: "bg-emerald-500/10 text-emerald-600",
+    href: "https://nyxion-propflow.vercel.app",
+    icon: <Building2 size={26} />,
+    features: [
+      { icon: <Building2 size={15} />, text: "Property & Unit Inventory Management" },
+      { icon: <BarChart3 size={15} />, text: "AI Sales Analytics & Forecasting" },
+      { icon: <Users size={15} />, text: "Client CRM & Installment Tracking" },
+      { icon: <FileText size={15} />, text: "Automated Booking & Agreement Docs" },
+    ],
+    packages: ["Starter", "Growth", "Elite"],
+    stack: ["AI-Powered", "Multi-Project", "CRM Built-In", "Cloud-Hosted"],
+  },
 ];
 
 export function Products() {
@@ -61,16 +84,16 @@ export function Products() {
             Our Products
           </span>
           <h2 className="text-4xl md:text-5xl text-navy mb-6 leading-tight">
-            Built for Pakistani schools.<br className="hidden md:block" /> Powered by AI.
+            Built for Pakistan.<br className="hidden md:block" /> Powered by AI.
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            Two platforms. One ecosystem. EduOS runs the school. LearnSpace runs the classroom.
-            Both powered by Llama 3.3 70B — AI built in by default, not bolted on.
+            Three platforms. One ecosystem. EduOS runs the school. LearnSpace runs the classroom. PropFlow runs the property business.
+            All powered by AI — built in by default, not bolted on.
           </p>
         </div>
 
         {/* Product cards */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {products.map((p, i) => (
             <motion.div
               key={p.id}
@@ -172,11 +195,41 @@ export function Products() {
         </motion.div>
 
         {/* Packages row */}
-        <div className="mt-12 grid grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { name: "Starter", price: "PKR 5,999", desc: "Small schools, up to 200 students", color: "border-blue/20 bg-blue/5" },
-            { name: "Growth", price: "PKR 11,999", desc: "Medium schools, up to 500 students", color: "border-violet-500/20 bg-violet-500/5", highlight: true },
-            { name: "Elite", price: "PKR 24,999", desc: "Large schools and chains, unlimited", color: "border-teal/20 bg-teal/5" },
+            {
+              name: "Starter",
+              price: "PKR 5,999",
+              setup: "PKR 10,000",
+              desc: "Small schools, up to 200 students",
+              color: "border-blue/20 bg-blue/5",
+              enterprise: false,
+            },
+            {
+              name: "Growth",
+              price: "PKR 15,999",
+              setup: "PKR 10,000",
+              desc: "Medium schools, up to 500 students",
+              color: "border-violet-500/20 bg-violet-500/5",
+              highlight: true,
+              enterprise: false,
+            },
+            {
+              name: "Elite",
+              price: "PKR 39,999",
+              setup: "PKR 15,000",
+              desc: "Large schools and chains, unlimited",
+              color: "border-teal/20 bg-teal/5",
+              enterprise: false,
+            },
+            {
+              name: "Enterprise",
+              price: "Custom",
+              setup: "Custom",
+              desc: "School networks, multi-campus chains, and large institutions",
+              color: "border-slate-600 bg-slate-900",
+              enterprise: true,
+            },
           ].map((pkg) => (
             <div
               key={pkg.name}
@@ -187,9 +240,31 @@ export function Products() {
                   Most Popular
                 </span>
               )}
-              <p className="text-navy font-bold text-lg mb-1">{pkg.name}</p>
-              <p className="text-2xl font-bold text-navy mb-1">{pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span></p>
-              <p className="text-slate-500 text-xs leading-relaxed">{pkg.desc}</p>
+              {pkg.enterprise && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
+                  For Chains
+                </span>
+              )}
+              <p className={`font-bold text-lg mb-1 ${pkg.enterprise ? "text-white" : "text-navy"}`}>{pkg.name}</p>
+              <p className={`text-2xl font-bold mb-1 ${pkg.enterprise ? "text-white" : "text-navy"}`}>
+                {pkg.price === "Custom"
+                  ? <span>Custom</span>
+                  : <>{pkg.price}<span className="text-sm font-normal text-slate-400">/mo</span></>
+                }
+              </p>
+              <p className={`text-xs leading-relaxed mb-3 ${pkg.enterprise ? "text-slate-400" : "text-slate-500"}`}>{pkg.desc}</p>
+              {pkg.enterprise ? (
+                <a
+                  href="#contact"
+                  className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-medium hover:bg-white/20 transition-colors"
+                >
+                  Contact us
+                </a>
+              ) : (
+                <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-[11px] font-medium">
+                  {pkg.setup} one-time setup
+                </div>
+              )}
             </div>
           ))}
         </div>
